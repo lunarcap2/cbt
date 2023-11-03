@@ -1,0 +1,258 @@
+
+<html lang="ko" dir="ltr">
+<head>
+	<title>CKEditor 5 ClassicEditor build</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="https://c.cksource.com/a/1/logos/ckeditor5.png">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	
+	<style type="text/css">
+
+		@media print {
+			* {
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				page-break-after:auto;
+				page-break-before: auto ;
+				
+			}
+			html, body {
+				width: 210mm;
+				height: 297mm;
+				margin:0;
+    padding:0;
+
+
+			}
+		
+			/* .ck.ck-editor p {page-break-inside:avoid; page-break-after:auto; height: 29.88px;} */
+			
+			/* body { margin: 0; border: initial; width: initial; min-height: initial; box-shadow: initial; background: initial; page-break-after: always; page-break-inside:avoid; page-break-after:auto;} */
+			.print_btn_wrap { display: none;}
+			 
+
+@page {
+  size: auto;
+  margin: 0;  /* this affects the margin in the printer settings */
+}
+		}
+
+	</style>
+
+		<script src="../build/ckeditor.js"></script>
+		<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
+		<style>
+
+			/*
+			CKEDITOR5 Classic으로 설정되었음
+			모든 세팅은 사용자가 글을 아직 적지 않은 상태를 가정하고 세팅해야함
+			기본 포맷 css로
+			사용자가 글을 적을 시 효과 -> script
+			*/
+
+			#header { height:51px; margin:0 -1px; padding:0 0 0 40px; background:url('http://img.megalawyers.co.kr/layout/popup_title.png') repeat-x; color:#fff; font-weight:bold; font-size:18px; line-height:51px;}
+			.button_default { display: inline-block; text-align: center; min-width:120px; padding: 5px 10px; background: #ddd; text-decoration: none; color:#333; font-weight: 500; letter-spacing: -0.5px;}
+            .button_default.quit { background: #0082ff; color:#fff;}
+			.print_btn_wrap { text-align: right; margin:10px 0 30px;}
+
+			.exam_tit { text-align: center; color:#133786; font-family: 'Nanum Gothic' !important; font-size: 25px;}
+        	.exam_tit strong { font-size: 45px; font-weight: bold;}
+
+			.aside_line_count { width:23px; height: 100%; text-align: center; margin-top: 0.1%;  margin-right: 15px; display: flex; flex-direction: column; text-align: center;}
+            .aside_line_count span { display: inline-block; font-size: 17px; height:29.88px; color:#333; text-align: center; }
+
+			.ck-editor__editable {
+				font-family: 'Nanum Gothic';
+				font-size: 18px !important;
+				letter-spacing: 3px;
+				line-height: 1.66 !important;
+				background-attachment: scroll !important;
+				background-color: #fff;
+				/* background-image:
+					linear-gradient(to right, white 10px, transparent 10px),
+					linear-gradient(to left, white 10px, transparent 10px),
+					repeating-linear-gradient(white, white 27.8px, #ccc 27.8px, #ccc 28.8px, white 28.8px) !important; */
+				padding: 0em 1em !important;
+
+				background-image: linear-gradient(#eee .1em, transparent .1em) !important; background-size: 100% 1.66em !important ; background-position: 0 -2px !important;
+				overflow-y: hidden !important;
+			}
+
+			
+			.ck.ck-editor {
+				width: 780px;
+				overflow-y: hidden !important;
+			}
+
+			.ck.ck-editor p {
+				margin-block-start: 0;
+				margin-block-end: 0;
+			}
+
+			.ck.ck-editor__editable_inline>:first-child {
+				margin-top: 0px;
+			}
+
+			.ck.ck-editor__editable_inline>:last-child {
+				margin-bottom: 0px;
+			}
+
+			.ck-editor__editable_inline {
+				min-height: 157px !important;
+			}
+
+			.ck-body-wrapper {
+				display: none;
+			}
+		</style>
+</head>
+
+
+<body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
+	<header id="header">
+		양유*(iris4095)_2023-07-15_CBT 답안파일
+	</header>
+	<div style="padding:10px;">
+		<div class="centered">
+
+			<div class="print_btn_wrap">
+				<a href="javascript:;" class="button_default quit">인쇄하기</a>
+				<a href="javascript:;" class="button_default save">닫기</a>
+			</div>
+			
+
+			<div class="exam_tit">
+				<h2>메가로이어스 변호사시험 답안지<br><strong>기록형</strong></h2>
+			</div>
+
+			<div class="row row-editor">
+                <div class="editor-container">
+                    <!-- 2023.06.26 : 좌측 줄 수 보여주기 -->
+                    <div class="aside_line_count">
+					</div>
+                    <!--// 2023.06.26 : 좌측 줄 수 보여주기 -->
+                    <div class="editor" contenteditable="true"> 
+						
+					</div>
+                </div>
+            </div>
+
+			<div class="row row-editor">
+				<div class="editor-container">
+					<div class="editor">
+					</div>
+				</div>
+			</div>
+
+
+			<!-- <div id="word-count"></div>
+			<div id="line-count"></div> -->
+		</div>
+		</main>
+		
+		<script>
+			$(document).ready(function(){
+				// 좌측 행 카운트
+				for (let i = 1; i < 329; i++) {
+					$('.aside_line_count').append('<span>' + i + '</span>');
+				}
+			})
+			ClassicEditor
+				.create(document.querySelector('.editor'), {
+					licenseKey: '',
+				})
+				.then(editor => {
+					//editor.enableReadOnlyMode("editor");
+					//전체 세팅될 높이 값
+					var fullHeight = 0;
+
+					//전체 세팅될 행 갯수
+					var lineCnt = 328;
+
+					//1개 라인당 높이 값
+					var perLineHeight = $(".ck .ck-content p:eq(0)").height() ? $(".ck .ck-content p:eq(0)").height() : 0;
+
+					//여백 값들 가져오기
+					var spaceObj;
+					var space = 0;
+
+					spaceObj = document.querySelector(".ck-editor__editable");
+					space += parseFloat(window.getComputedStyle(spaceObj).getPropertyValue("padding").replace(/px/gi, ""));
+					space += parseFloat(window.getComputedStyle(spaceObj).getPropertyValue("border-width").replace(/px/gi, ""));
+					space = space * 2;
+
+					fullHeight = perLineHeight * lineCnt + space;
+
+					editor.focus();
+
+					// const wordCountPlugin = editor.plugins.get('WordCount');
+					// const wordCountWrapper = document.getElementById('word-count');
+					// wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
+
+					$("#line-count").html("줄 수 : " + updateLineCount(editor));
+
+					//에디터 자체가 변경 될시
+					editor.editing.view.change(writer => {
+						writer.setStyle("height", fullHeight + "px", editor.editing.view.document.getRoot());
+					});
+
+					//에디터 keydown 이벤트
+					editor.editing.view.document.on('keydown', (evt, data) => {
+						if ((data.shiftKey && isSpecialCharacterKey(data.keyCode)) || data.keyCode == 25) {
+							data.preventDefault();
+							evt.stop();
+						}
+					});
+
+					//에디터 데이터 변경시 이벤트
+					editor.model.document.on('change:data', () => {
+						setTimeout(function () {
+							var thisLineCnt = updateLineCount(editor);
+
+							$("#line-count").html("줄 수 : " + thisLineCnt);
+
+							if (thisLineCnt > lineCnt) {
+								//download('test.txt', editor.getData())
+							}
+						}, 0);
+					});
+
+					function updateLineCount(editor) {
+						let lineHeight = 0;
+						let lineCnt = 0;
+
+						$(".ck .ck-content p").each(function () {
+							lineHeight += $(this).height();
+						})
+
+						lineCnt = lineHeight / perLineHeight;
+						return Math.round(lineCnt);
+					}
+
+					function isSpecialCharacterKey(keyCode) {
+						return keyCode >= 48 && keyCode <= 57 || // 숫자 키
+							keyCode >= 186 && keyCode <= 192 || // ;=,-./` 키
+							keyCode >= 219 && keyCode <= 222; // [\]'" 키
+					}
+
+					function isChineseCharacterKey(keyCode) {
+						return keyCode === 229; // 한자키 키 코드
+					}
+				})
+				.catch(error => {
+					console.error('Oops, something went wrong!');
+					console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+					console.warn('Build id: npntvpvbyzns-4egbblrlmcuo');
+					console.error(error);
+				});
+		</script>
+
+</body>
+
+</html>

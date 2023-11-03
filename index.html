@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<!--
+  Copyright (c) 2014-2023, CKSource Holding sp. z o.o. All rights reserved.
+  This file is licensed under the terms of the MIT License (see LICENSE.md).
+-->
+<html lang="ko" dir="ltr">
+
+<head>
+	<title>Sample</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="cache-control" content="no-chche" />
+	<meta http-equiv='x-ua-compatible' content='IE=edge,chrome=1' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./editor/build/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
+	<header>
+	</header>
+	<div class="cbt">
+		<style>
+			/*
+			CKEDITOR5 Classic으로 설정되었음
+			모든 세팅은 사용자가 글을 아직 적지 않은 상태를 가정하고 세팅해야함
+			기본 포맷 css로
+			사용자가 글을 적을 시 효과 -> script
+			*/
+
+			/* 기본세팅 */
+			html,
+			body {
+				height: 100%;
+				border: 0;
+			}
+
+			body,
+			p,
+			form,
+			ol,
+			ul,
+			li,
+			dl,
+			dd,
+			input,
+			select,
+			textarea,
+			blockquote {
+				margin: 0;
+				padding: 0;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin: 0;
+				padding: 0;
+			}
+
+			table th {
+				text-align: center;
+			}
+
+			th,
+			td {
+				word-break: break-all;
+			}
+
+			em,
+			i {
+				font-style: normal;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			img {
+				border: 0;
+				vertical-align: middle;
+			}
+
+			del {
+				color: #bbb;
+			}
+
+			samp {
+				font-family: 'Nanum Gothic', 'Malgun Gothic';
+			}
+
+			strong {
+				font-weight: bold;
+			}
+
+			a {
+				color: #888;
+				text-decoration: none;
+			}
+
+			a:focus,
+			a:active {
+				outline: none;
+			}
+
+			/* common */
+			.centered {
+				position: relative;
+				max-width: 1300px !important;
+				/* max-width: 1500px !important; */
+				padding: 0 !important;
+			}
+
+			.tleft {
+				text-align: left !important;
+			}
+
+			.tright {
+				text-align: right !important;
+			}
+
+			.tcenter {
+				text-align: center !important;
+			}
+
+			body {
+				background: #133786;
+			}
+
+			.cbt {
+				min-width: 1320px;
+				/* min-width: 1520px; */
+				/* 2023.09.18 */
+			}
+
+			.lms_quick {
+				width: 100%;
+				min-width: 1300px;
+				background: #333;
+				border-top: 3px solid #0082ff;
+				margin-left: 0;
+				position: fixed;
+				top: 0px;
+				z-index: 100;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: center;
+			}
+
+			.lms_quick .titarea {
+				min-width: 1300px;
+				width: 1200px;
+				height: 80px;
+				padding: 0px 135px;
+				background: #333;
+				color: #fff;
+			}
+
+			.lms_quick .titarea * {
+				font-family: 'Malgun Gothic', dotum, applegothic, sans-serif;
+			}
+
+			.lms_quick .titarea .left {
+				width: 100%;
+				text-align: left !important;
+				padding-left: 30px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				padding: 0 15px 0 0;
+				text-align: right;
+				height: 80px;
+			}
+
+			.lms_quick .titarea .left img {
+				vertical-align: top;
+				margin-top: 2px;
+			}
+
+			.lms_quick .titarea .left span {
+				display: inline-block;
+				margin-left: 20px;
+				text-align: left;
+				font-size: 21px;
+				font-weight: bold;
+				letter-spacing: -0.5px
+			}
+
+			.lms_quick .titarea .left span strong {
+				display: inline-block;
+				margin-left: 6px;
+			}
+
+			.lms_quick .titarea .review_area {
+				text-align: center;
+				margin-left: 20px;
+			}
+
+			.lms_quick .titarea .left {}
+
+			.lms_quick .titarea .left dl {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 250px;
+				height: 50px;
+				margin-left: 20px;
+				border: 1px solid #fff;
+				overflow: hidden;
+				border-radius: 5px;
+				padding: 0 10px;
+				vertical-align: top;
+			}
+
+			.lms_quick .titarea .left dl dt,
+			.lms_quick .titarea .left dl dd {
+				display: inline-block;
+				color: #fff;
+				margin-left: 0;
+			}
+
+			.lms_quick .titarea .left dl dt {
+				font-size: 20px;
+				line-height: 37px;
+				font-weight: bold;
+				margin-right: 2px;
+				text-align: center;
+			}
+
+			.lms_quick .titarea .left dl dd {
+				font-size: 26px;
+				color: #fff;
+				line-height: 37px;
+				text-align: left;
+				margin-left: 5px;
+			}
+
+			.lms_quick .titarea .left dl dd+dt {
+				margin-left: 10px;
+			}
+
+			.lms_quick .titarea .last {
+				width: 170px;
+				height: 70px;
+				text-align: center;
+			}
+
+			.lms_quick .titarea .last span {
+				height: 70px;
+				display: block;
+				background: #485486;
+				color: #fff;
+				font-size: 18px;
+				font-weight: bold;
+				line-height: 66px;
+			}
+
+			.lms_quick .txt {
+				overflow: hidden;
+				background: #f4fcff;
+				box-sizing: border-box;
+				padding: 12px 40px 14px;
+				border-bottom: 1px solid #646464;
+			}
+
+			.lms_quick .txt li {
+				font-size: 12px;
+				font-weight: bold;
+				color: #f84f26;
+				text-align: left;
+				line-height: 18px;
+			}
+
+			.lms_quick .txt li:before {
+				content: '※';
+				display: inline-block;
+				margin-right: 8px;
+			}
+
+			.floBnrWrap {
+				width: 165px;
+				top: 0px;
+				right: 50px;
+				position: absolute;
+				z-index: 20;
+			}
+
+			.floBnrWrap .floBnr {
+				position: absolute;
+			}
+
+			.floBnrWrap .floBnr.fixed {
+				top: 155px;
+				position: fixed;
+			}
+
+			/* 2023.09.18 */
+			.floBnrWrap.type2 {
+				z-index: 5;
+			}
+
+			.floBnrWrap.type2 .floBnr.fixed {
+				top: 415px;
+				position: fixed;
+			}
+			/*// 2023.09.18 */
+
+			.floBnr ul {
+				width: 165px;
+				display: flex;
+				flex-wrap: wrap;
+				background: #fff;
+				padding: 10px 5px;
+				box-sizing: border-box;
+				position: relative;
+				border-radius: 5px;
+			}
+
+			.floBnr ul li {
+				width: 50%;
+				display: inline-block;
+				text-align: center;
+			}
+
+			.floBnr ul li:nth-child(odd) {
+				border-right: 1px solid #ddd;
+			}
+
+			.floBnr ul li a {
+				display: block;
+				font-size: 13px;
+				padding: 5px 0;
+			}
+
+			.floBnr ul li img {
+				width: 31%;
+			}
+
+			.floBnr ul #icon_box {
+				display: none;
+				width: 350px;
+				position: absolute;
+				top: 40px;
+				left: -185px;
+				z-index: 999;
+				overflow-y:auto;
+			}
+
+			.floBnr ul #icon_box .icon_box_inner {
+				width: 350px;
+				height: 72vh;
+				background: #fff;
+				padding: 20px;
+				border: 1px solid #ddd;
+				box-sizing: border-box;
+				position: relative;
+				z-index: 999;
+				overflow-y:auto;
+			}
+
+			.floBnr ul #icon_box .icon_box_inner h5 {
+				padding: 0 0 5px;
+				border-bottom: 1px solid #ddd;
+				margin-bottom: 10px;
+			}
+
+			.floBnr ul #icon_box .icon_box_inner section {
+				display: inline-block;
+				margin-left: 5px;
+				margin-bottom: 2px;
+			}
+
+			.floBnr ul #icon_box .icon_box_inner section a.letter {
+				min-width: 23px;
+				font-size: 15px;
+				letter-spacing: 2px;
+				padding: 4px 3px;
+				display: inline-block;
+				color: #333;
+				text-align: center;
+				background: #f1f1f1;
+				border-radius: 5px;
+				font-weight: 600;
+			}
+
+			.floBnr ul #icon_box .icon_box_inner section a.letter:hover {
+				outline: 1px solid #0082ff;
+				box-sizing: border-box;
+			}
+
+			.floBnr ul #icon_box .icon_popClose {
+				position: absolute;
+				right: 10px;
+				top: 8px;
+			}
+
+			.floBnr .ly_dim {
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 990;
+				width: 100%;
+				height: 100%;
+			}
+
+			/* 2023.09.18 : 섹션 이동 플로팅배너 추가 S */
+			.floBnrWrap.type2 {
+				top: 260px;
+			}
+
+			.floBnrWrap.type2 ul {
+				padding: 10px;
+			}
+
+			.floBnrWrap.type2 ul li {
+				border: none;
+			}
+
+			.floBnrWrap.type2 ul li a {
+				width: 95%;
+				margin-bottom: 5px;
+				background: #fff;
+				padding: 20px;
+				border: 1px solid #ddd;
+				border-radius: 10px;
+				font-size: 16px;
+				font-weight: bold;
+				color: #000;
+			}
+
+			.floBnrWrap.type2 ul li a.active {
+				background: #0082ff;
+				color: #fff;
+			}
+
+			/*// 2023.09.18 : 섹션 이동 플로팅배너 추가 E */
+
+			.button_default {
+				display: inline-block;
+				text-align: center;
+				min-width: 120px;
+				padding: 5px 10px;
+				background: #ddd;
+				text-decoration: none;
+				color: #333;
+				font-weight: 500;
+				letter-spacing: -0.5px;
+			}
+
+			.button_default.quit {
+				background: #0082ff;
+				color: #fff;
+			}
+
+			.editor_top_wrap {
+				min-width: 1300px;
+				padding: 0 266px;
+				/* 2023.09.18 */
+				box-sizing: border-box;
+				margin: 0 auto;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				margin: 150px 0 30px;
+			}
+
+			.table_inner {
+				background: #fff;
+				width: 100%;
+				padding: 20px 40px;
+				margin-left: 25px;
+			}
+
+			.editor_top {
+				width: 100%;
+				height: 150px;
+				/* 2023.09.18 */
+				background-color: #2d3741;
+				border: 2px solid #133786;
+				box-sizing: border-box;
+				font-size: 13px;
+			}
+
+			.editor_top .left {
+				width: 160px;
+				padding-left: 50px;
+			}
+
+			.editor_top .right {
+				padding: 0 15px 0 0;
+				text-align: center;
+			}
+
+			.editor_top .right dl {
+				width: 100%;
+				height: 37px;
+				border: 1px solid #505a5f;
+				overflow: hidden;
+			}
+
+			.editor_top .right dl dt {
+				display: inline-block;
+				float: left;
+				background: #505a5f;
+				padding: 0 40px;
+				line-height: 37px;
+				color: #fff;
+				font-weight: bold;
+				margin-right: 10px;
+			}
+
+			.editor_top .right dl dd {
+				color: #fff;
+				line-height: 37px;
+				text-align: left;
+			}
+
+			.editor_top .btn {
+				width: 200px;
+				height: 70px;
+				text-align: center;
+			}
+
+			.editor_top .btn .btn {
+				width: 200px;
+				height: 70px;
+				display: block;
+				background-color: #f85023;
+				color: #fff;
+				font-size: 18px;
+				font-weight: bold;
+				line-height: 65px;
+			}
+
+			.editor_top tr th {
+				color: #258647;
+				background: #fff;
+				padding: 10px 5px;
+				border: 1px solid #258647;
+			}
+
+			.editor_top tr td {
+				color: #258647;
+				text-align: center;
+				background: #d1d1e8;
+				padding: 10px 5px;
+				border: 1px solid #258647;
+			}
+
+			.editor_top_wrap .exam_tit {
+				padding: 20px 0 0px;
+				text-align: center;
+				color: #258647;
+				font-family: 'Nanum Gothic' !important;
+				font-size: 30px;
+				letter-spacing: -1px;
+			}
+
+			.editor_top_wrap .exam_tit strong {
+				font-size: 41px;
+				font-weight: bold;
+			}
+
+			.aside_line_count {
+				width: 22px;
+				height: 100%;
+				text-align: center;
+				margin-top: 0.1%;
+				margin-right: 5px;
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.aside_line_count span {
+				display: inline-block;
+				font-size: 13px;
+				height: 29px;
+				line-height: 29px;
+				/* 2023.09.18 */
+				color: #fff;
+				text-align: center;
+			}
+
+			.editor-container {
+				min-width: 1300px !important;
+			}
+
+			/* 2023.09.18 : 단위 px 로 모두 변경, 쪽수 bg 색상 고정 */
+			.ck-editor__editable {
+				position: relative;
+				/* 2023.09.18 */
+				font-family: "Courier New" !important;
+				font-size: 14.5px !important;
+				/* 2023.09.18 : 폰트사이즈 18px -> 16px 변경 */
+				letter-spacing: 0px;
+				line-height: 29px !important;
+				background-attachment: scroll !important;
+				background: repeating-linear-gradient(rgba(247, 247, 247, 0.5),
+						rgba(247, 247, 247, 0.5) calc(955px),
+						rgba(239, 243, 206, 0.5) calc(955px),
+						rgba(239, 243, 206, 0.5) calc(1914px),
+						rgba(247, 247, 247, 0.5) calc(1914px),
+						rgba(247, 247, 247, 0.5) calc(2869px),
+						rgba(239, 243, 206, 0.5) calc(2869px),
+						rgba(239, 243, 206, 0.5) calc(3829px),
+						rgba(239, 243, 206, 0.5) calc(3829px)),
+					repeating-linear-gradient(white, white 28px, #ccc 28px, #ccc 29px, white 29px) !important;
+				padding: 3px 15px !important;
+				overflow-y: hidden !important;
+				word-break: break-all !important;
+			}
+
+			/*// 2023.09.18 : 단위 px 로 모두 변경, 쪽수 bg 색상 고정 */
+
+			.ck.ck-editor {
+				width: 743px;
+				/* 2023.09.18 : 기존 780px -> 970px 변경 */
+				overflow-y: hidden !important;
+				z-index: 10;
+			}
+
+			.ck.ck-editor p {
+				margin-block-start: 0;
+				margin-block-end: 0;
+			}
+
+			.ck.ck-editor__editable_inline>:first-child {
+				margin-top: 0px;
+			}
+
+			.ck.ck-editor__editable_inline>:last-child {
+				margin-bottom: 0px;
+			}
+
+			.ck-editor__editable_inline {
+				min-height: 157px !important;
+			}
+
+			.ck-body-wrapper {
+				display: none;
+			}
+
+			/* 2023.09.18 */
+			.count-wrap {
+				display: none;
+				min-width: 165px !important;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				background: #fff;
+				border-radius: 5px;
+				padding: 30px;
+				transform: translate(-50%, -50%);
+				z-index: 10;
+				text-align: center;
+				box-shadow: 3px 6px 13px 3px rgb(69, 69, 69, .2);
+			}
+
+			.count-wrap.active {
+				display: block;
+			}
+
+			/*// 2023.09.18 */
+
+			.ck-word-count,
+			#line-count {
+				color: #333;
+			}
+
+			#count-warn {
+				width: 340px;
+				color: #333;
+				letter-spacing: -0.5px;
+				display: none;
+			}
+
+			#count-warn.active {
+				display: block;
+			}
+
+			#count-warn strong {
+				text-decoration: underline;
+				color: #0082ff;
+			}
+
+			.ck-word-count__words {
+				display: none;
+			}
+		</style>
+
+		<div class="lms_quick">
+			<table class="titarea" cellspacing="0" cellpadding="0">
+				<tr>
+					<td class="left">
+						<span>CBT첨삭 답안 작성하기</span>
+						<dl class="time_blink active">
+							<dt>남은시간:</dt>
+							<dd id="timeWrap">000:00 </dd>
+						</dl>
+					</td>
+					<td class="right">
+						<a href="javascript:;" class="button_default save" id="tmpSave">답안 임시저장 &gt;</a>
+						<a href="javascript:;" class="button_default quit" onclick="$('#ly_quit').fadeIn();">시험 종료
+							&gt;</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="centered">
+
+			<div class="row editor_top_wrap">
+				<div class="table_inner">
+					<table class="editor_top">
+						<colgroup>
+							<col width=";">
+							<col width="16%">
+							<col width="16%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>시험명</th>
+								<th>수험번호</th>
+								<th>이름</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="tleft">
+									DB 연결 시 저장 가능
+								</td>
+								<td>Sample</td>
+								<td>Sample</td>
+							</tr>
+						</tbody>
+					</table>
+					<h2 class="exam_tit">
+						메가로이어스 변호사 시험 답안지 <strong>Sample</strong>
+
+					</h2>
+				</div>
+			</div>
+
+			<div class="row row-editor">
+				<div class="floBnrWrap">
+					<div class="floBnr">
+						<ul>
+							<li>
+								<a href="javascript:;" id="undo" title="실행취소">
+									<div><img src="./Sample_files/icon_back.png" alt="실행취소">
+									</div>
+									실행취소
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" id="redo" title="되돌리기">
+									<div><img src="./Sample_files/icon_forwards.png" alt="되돌리기"></div>
+									되돌리기
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" id="alignL" title="왼쪽정렬">
+									<div><img src="./Sample_files/icon_align_left.png" alt="왼쪽정렬"></div>
+									왼쪽정렬
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" id="alignR" title="오른쪽정렬">
+									<div><img src="./Sample_files/icon_align_right.png" alt="오른쪽정렬"></div>
+									오른쪽정렬
+								</a>
+							</li>
+
+							<li>
+								<a href="javascript:;" id="alignC" title="가운데정렬">
+									<div><img src="./Sample_files/icon_align_center.png" alt="가운데정렬">
+									</div>
+									가운데정렬
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" id="alignJ" title="양쪽정렬">
+									<div><img src="./Sample_files/icon_align_justify.png" alt="양쪽정렬">
+									</div>
+									양쪽정렬
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" title="특수문자"
+									onclick="document.getElementById('icon_box').style.display='block'; return false;">
+									<div><img src="./Sample_files/icon_type.png" alt="특수문자">
+									</div>
+									특수문자
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" onclick="popupCenter('cbt_help_pop.asp', '860', '580'); "
+									title="도움말">
+									<div><img src="./Sample_files/icon_info.png" alt="도움말">
+									</div>
+									도움말
+								</a>
+							</li>
+
+							<!-- 특수문자 레이어 -->
+							<div id="icon_box">
+								<div class="icon_box_inner">
+									<h5>특수문자</h5>
+
+									<div id="specialCharsLayer">
+										<section>
+											<a href="javascript:;" class="letter">□</a>
+											<a href="javascript:;" class="letter">○</a>
+											<a href="javascript:;" class="letter">-</a>
+											<a href="javascript:;" class="letter">※</a>
+											<a href="javascript:;" class="letter">■</a>
+											<a href="javascript:;" class="letter">●</a>
+											<a href="javascript:;" class="letter">◎</a>
+											<a href="javascript:;" class="letter">▣</a>
+											<a href="javascript:;" class="letter">‘</a>
+											<a href="javascript:;" class="letter">’</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">“</a>
+											<a href="javascript:;" class="letter">”</a>
+											<a href="javascript:;" class="letter">「</a>
+											<a href="javascript:;" class="letter">」</a>
+											<a href="javascript:;" class="letter">『</a>
+											<a href="javascript:;" class="letter">』</a>
+											<a href="javascript:;" class="letter">·</a>
+											<a href="javascript:;" class="letter">§</a>
+											<a href="javascript:;" class="letter">+</a>
+											<a href="javascript:;" class="letter">÷</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">×</a>
+											<a href="javascript:;" class="letter">=</a>
+											<a href="javascript:;" class="letter">{</a>
+											<a href="javascript:;" class="letter">}</a>
+											<a href="javascript:;" class="letter">(</a>
+											<a href="javascript:;" class="letter">)</a>
+											<a href="javascript:;" class="letter">[</a>
+											<a href="javascript:;" class="letter">]</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">℃</a>
+											<a href="javascript:;" class="letter">㎘</a>
+											<a href="javascript:;" class="letter">㎦</a>
+											<a href="javascript:;" class="letter">㎧</a>
+											<a href="javascript:;" class="letter">㎜</a>
+											<a href="javascript:;" class="letter">㎝</a>
+											<a href="javascript:;" class="letter">㎞</a>
+											<a href="javascript:;" class="letter">㎠</a>
+											<a href="javascript:;" class="letter">㎡</a>
+											<a href="javascript:;" class="letter">㎢</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㎤</a>
+											<a href="javascript:;" class="letter">㎥</a>
+											<a href="javascript:;" class="letter">㎎</a>
+											<a href="javascript:;" class="letter">㎏</a>
+											<a href="javascript:;" class="letter">ℓ</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">Ⅰ</a>
+											<a href="javascript:;" class="letter">Ⅱ</a>
+											<a href="javascript:;" class="letter">Ⅲ</a>
+											<a href="javascript:;" class="letter">Ⅳ</a>
+											<a href="javascript:;" class="letter">Ⅴ</a>
+											<a href="javascript:;" class="letter">Ⅵ</a>
+											<a href="javascript:;" class="letter">Ⅶ</a>
+											<a href="javascript:;" class="letter">Ⅷ</a>
+											<a href="javascript:;" class="letter">Ⅸ</a>
+											<a href="javascript:;" class="letter">Ⅹ</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">ⅰ</a>
+											<a href="javascript:;" class="letter">ⅱ</a>
+											<a href="javascript:;" class="letter">ⅲ</a>
+											<a href="javascript:;" class="letter">ⅳ</a>
+											<a href="javascript:;" class="letter">ⅴ</a>
+											<a href="javascript:;" class="letter">ⅵ</a>
+											<a href="javascript:;" class="letter">ⅶ</a>
+											<a href="javascript:;" class="letter">ⅷ</a>
+											<a href="javascript:;" class="letter">ⅸ</a>
+											<a href="javascript:;" class="letter">ⅹ</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">①</a>
+											<a href="javascript:;" class="letter">②</a>
+											<a href="javascript:;" class="letter">③</a>
+											<a href="javascript:;" class="letter">④</a>
+											<a href="javascript:;" class="letter">⑤</a>
+											<a href="javascript:;" class="letter">⑥</a>
+											<a href="javascript:;" class="letter">⑦</a>
+											<a href="javascript:;" class="letter">⑧</a>
+											<a href="javascript:;" class="letter">⑨</a>
+											<a href="javascript:;" class="letter">⑩</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㉠</a>
+											<a href="javascript:;" class="letter">㉡</a>
+											<a href="javascript:;" class="letter">㉢</a>
+											<a href="javascript:;" class="letter">㉣</a>
+											<a href="javascript:;" class="letter">㉤</a>
+											<a href="javascript:;" class="letter">㉥</a>
+											<a href="javascript:;" class="letter">㉦</a>
+											<a href="javascript:;" class="letter">㉧</a>
+											<a href="javascript:;" class="letter">㉨</a>
+											<a href="javascript:;" class="letter">㉩</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㉪</a>
+											<a href="javascript:;" class="letter">㉫</a>
+											<a href="javascript:;" class="letter">㉬</a>
+											<a href="javascript:;" class="letter">㉭</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㉮</a>
+											<a href="javascript:;" class="letter">㉯</a>
+											<a href="javascript:;" class="letter">㉰</a>
+											<a href="javascript:;" class="letter">㉱</a>
+											<a href="javascript:;" class="letter">㉲</a>
+											<a href="javascript:;" class="letter">㉳</a>
+											<a href="javascript:;" class="letter">㉴</a>
+											<a href="javascript:;" class="letter">㉵</a>
+											<a href="javascript:;" class="letter">㉶</a>
+											<a href="javascript:;" class="letter">㉷</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㉸</a>
+											<a href="javascript:;" class="letter">㉹</a>
+											<a href="javascript:;" class="letter">㉺</a>
+											<a href="javascript:;" class="letter">㉻</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">⑴</a>
+											<a href="javascript:;" class="letter">⑵</a>
+											<a href="javascript:;" class="letter">⑶</a>
+											<a href="javascript:;" class="letter">⑷</a>
+											<a href="javascript:;" class="letter">⑸</a>
+											<a href="javascript:;" class="letter">⑹</a>
+											<a href="javascript:;" class="letter">⑺</a>
+											<a href="javascript:;" class="letter">⑻</a>
+											<a href="javascript:;" class="letter">⑼</a>
+											<a href="javascript:;" class="letter">⑽</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㈀</a>
+											<a href="javascript:;" class="letter">㈁</a>
+											<a href="javascript:;" class="letter">㈂</a>
+											<a href="javascript:;" class="letter">㈃</a>
+											<a href="javascript:;" class="letter">㈄</a>
+											<a href="javascript:;" class="letter">㈅</a>
+											<a href="javascript:;" class="letter">㈆</a>
+											<a href="javascript:;" class="letter">㈇</a>
+											<a href="javascript:;" class="letter">㈈</a>
+											<a href="javascript:;" class="letter">㈉</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㈊</a>
+											<a href="javascript:;" class="letter">㈋</a>
+											<a href="javascript:;" class="letter">㈌</a>
+											<a href="javascript:;" class="letter">㈍</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㈎</a>
+											<a href="javascript:;" class="letter">㈏</a>
+											<a href="javascript:;" class="letter">㈐</a>
+											<a href="javascript:;" class="letter">㈑</a>
+											<a href="javascript:;" class="letter">㈒</a>
+											<a href="javascript:;" class="letter">㈓</a>
+											<a href="javascript:;" class="letter">㈔</a>
+											<a href="javascript:;" class="letter">㈕</a>
+											<a href="javascript:;" class="letter">㈖</a>
+											<a href="javascript:;" class="letter">㈗</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">㈘</a>
+											<a href="javascript:;" class="letter">㈙</a>
+											<a href="javascript:;" class="letter">㈚</a>
+											<a href="javascript:;" class="letter">㈛</a>
+										</section>
+
+										<section>
+											<a href="javascript:;" class="letter">甲</a>
+											<a href="javascript:;" class="letter">乙</a>
+											<a href="javascript:;" class="letter">丙</a>
+											<a href="javascript:;" class="letter">丁</a>
+											<a href="javascript:;" class="letter">戊</a>
+											<a href="javascript:;" class="letter">己</a>
+											<a href="javascript:;" class="letter">庚</a>
+											<a href="javascript:;" class="letter">辛</a>
+											<a href="javascript:;" class="letter">壬</a>
+											<a href="javascript:;" class="letter">癸</a>
+										</section>
+
+									</div>
+
+									<a href="javascript:;" class="icon_popClose"
+										onclick="document.getElementById('icon_box').style.display='none'; return false;">
+										<img src="./Sample_files/btn_close_sb.png" alt="닫기">
+									</a>
+								</div>
+								<span class="ly_dim"
+									onclick="document.getElementById('icon_box').style.display='none'; return false;"></span>
+							</div>
+							<!-- /특수문자 레이어 -->
+
+						</ul>
+					</div>
+				</div>
+
+				<!-- 2023.09.18 : 섹션 이동 플로팅배너 추가 S -->
+				<script type="text/javascript">
+					$(document).ready(function () {
+						$('.floBnrWrap.type2 ul li a').click(function (e) {
+							event.preventDefault();
+
+							if ($(this).hasClass('active')) {
+								$(this).addClass('active');
+								var target = $(this).attr('href');
+								var offset = $(target).offset().top - 200;
+
+								$('html, body').animate({ scrollTop: offset }, 500);
+
+							} else {
+								alert('내용이 작성되지 않은 페이지는 이동이 불가합니다.')
+							}
+
+						});
+					})	
+				</script>
+				<div class="floBnrWrap type2">
+					<div class="floBnr">
+						<ul id="pageWrap">
+							<li>
+								<a href="#anchor1" class="page page1" title="1쪽 이동">1쪽</a>
+							</li>
+							<li>
+								<a href="#anchor34" class="page page2" title="2쪽 이동">2쪽</a>
+							</li>
+							<li>
+								<a href="#anchor67" class="page page3" title="3쪽 이동">3쪽</a>
+							</li>
+							<li>
+								<a href="#anchor100" class="page page4" title="4쪽 이동">4쪽</a>
+							</li>
+							<li>
+								<a href="#anchor133" class="page page5" title="5쪽 이동">5쪽</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--// 2023.09.18 : 섹션 이동 플로팅배너 추가 E -->
+			</div>
+
+			<div class="row row-editor">
+				<div class="editor-container">
+					<!-- 좌측 줄 수 보여주기 -->
+					<div class="aside_line_count">
+					</div>
+					<!--// 좌측 줄 수 보여주기 -->
+					<div class="editor">
+					</div>
+				</div>
+			</div>
+
+			<div class="row row-editor">
+				<div class="editor-container">
+					<div class="editor">
+						&nbsp;
+					</div>
+				</div>
+			</div>
+
+			<div class="count-wrap">
+				<!-- <div id="word-count"></div>
+				<div id="line-count"></div>
+				<div id="page-count"></div> -->
+				<div id="count-warn" class="">
+					<span style="color:#0082ff; font-size:17px;">
+						<strong>제한된 답안 분량을 초과하였습니다.</strong> <!-- 2023.09.18 -->
+					</span>
+					<br>
+				</div>
+			</div>
+
+			<style>
+				@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
+
+				.cbt .layerPop {
+					display: none;
+					position: fixed;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 110;
+					text-align: center;
+				}
+
+				.cbt .layerPop .popInner {
+					position: relative;
+					width: 800px;
+					margin: 100px auto 0;
+					z-index: 999;
+					text-align: left;
+				}
+
+				.cbt .layerPop .exam_quit,
+				.cbt .layerPop .exam_info {
+					margin-left: 18px;
+				}
+
+				.cbt .layerPop .txt_wrap {
+					position: absolute;
+					top: 427px;
+					left: 226px;
+					width: 385px;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					font-family: 'pretendard' !important;
+				}
+
+				.cbt .layerPop .exam_info .txt_wrap {
+					position: absolute;
+					top: 605px;
+					left: 226px;
+					width: 385px;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					font-family: 'pretendard' !important;
+				}
+
+				.cbt .layerPop .txt_wrap label {
+					font-size: 16px;
+					color: #222;
+					font-weight: 600;
+				}
+
+				.cbt .layerPop .txt_wrap input[type="checkbox"] {
+					transform: scale(1.2);
+					margin-right: 5px;
+					position: relative;
+					top: 1px;
+				}
+
+				.cbt .layerPop .txt_wrap span {
+					font-size: 20px;
+					color: #0082ff;
+				}
+
+				.cbt .layerPop .txt_wrap a {
+					display: inline-block;
+					padding: 3px 19px;
+					font-size: 14px;
+					background: #222;
+					color: #fff;
+					border-radius: 5px;
+					text-decoration: none;
+				}
+
+				.cbt .layerPop .popInner2 {
+					position: relative;
+					width: 800px;
+					margin: 150px auto 0;
+					z-index: 999;
+					text-align: left;
+				}
+
+				.cbt .layerPop .popInner2 .btn_wrap {
+					position: absolute;
+					top: 331px;
+					left: 221px;
+					width: 385px;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					font-family: 'pretendard' !important;
+				}
+
+				.cbt .layerPop .btn_wrap {
+					position: absolute;
+					bottom: 40px;
+					left: 236px;
+				}
+
+				.cbt .layerPop .btn_wrap .btn01 {
+					display: inline-block;
+					width: 160px;
+					height: 56px;
+					line-height: 56px;
+					font-size: 20px;
+					font-family: 'pretendard' !important;
+					text-align: center;
+					border-radius: 10px;
+					font-weight: 600;
+				}
+
+				.cbt .layerPop .btn_wrap .btn01.btn_cx {
+					background: #fff;
+					color: #222;
+					border: 1px solid #bdbdbd;
+					box-sizing: border-box;
+				}
+
+				.cbt .layerPop .btn_wrap .btn01.btn_confirm {
+					background: #222;
+					color: #fff;
+					margin-left: 10px;
+				}
+
+				.cbt .layerPop .bt_popClose {
+					right: -6px;
+					top: 9px;
+					position: absolute;
+					display: block;
+					z-index: 1;
+					text-align: left;
+				}
+
+				.cbt .layerPop .ly_dim {
+					position: fixed;
+					left: 0;
+					top: 0;
+					z-index: 990;
+					width: 100%;
+					height: 100%;
+					background: rgba(0, 0, 0, .5);
+				}
+
+				.cbt .layerPop.countLayer .popInner {
+					overflow: hidden;
+					width: 400px;
+					height: 500px;
+					background: #fff;
+					border: 10px solid #0082ff;
+					margin: 180px auto;
+					text-align: center;
+					padding: 80px 0px 20px;
+					box-sizing: border-box;
+				}
+
+				.cbt .layerPop.countLayer .popInner h5 {
+					font-size: 170px;
+					color: #0082ff;
+					border: 10px solid #0082ff;
+					border-radius: 100vw;
+					width: 270px;
+					text-align: center;
+					margin: 0 auto;
+				}
+
+				.cbt .layerPop.countLayer .popInner p {
+					font-size: 30px;
+					font-weight: bold;
+					padding: 18px;
+					letter-spacing: -1px;
+					margin-top: 50px;
+					background: #0082ff;
+					color: #fff;
+				}
+			</style>
+
+			<!-- 확인사항 레이어팝업 : 페이지 진입시 -->
+			<!-- <div class="layerPop" id="ly_info" style="display:<%If DataNo = 0 Then%>block<%Else%>none<%End If%>;"> -->
+			<div class="layerPop" id="ly_info" style="display:block;">
+				<div class="popInner">
+					<div class="exam_info">
+						<img src="./Sample_files/lyr_info01.png" alt="CBT 첨삭 확인사항" usemap="#lyr_info01">
+						<map name="lyr_info01">
+							<area shape="rect" coords="301,506,421,528" target="_blank"
+								href="https://www.google.co.kr/chrome/?brand=IBEF&gclid=CjwKCAjwkeqkBhAnEiwA5U-uMyYGdytkF7EpKjmsPDncopfDMCMsyDp00gpXc-NUlDLbZby1exl0MxoCXTsQAvD_BwE&gclsrc=aw.ds"
+								alt="크롬 다운로드">
+							<area shape="rect" coords="428,506,548,528" target="_blank"
+								href="https://www.microsoft.com/ko-kr/edge/download?form=MA13FJ " alt="엣지 다운로드">
+							<area shape="rect" coords="552,506,671,528" target="_blank"
+								href="https://whale.naver.com/ko/" alt="웨일 다운로드">
+						</map>
+
+						<div class="txt_wrap">
+							<label><input type="checkbox" id="confirm"> 위 내용을 확인하였으며, 이에 동의합니다.</label>
+						</div>
+
+						<div class="btn_wrap" style="left:252px;">
+							<a href="javascript:;" onclick="" class="btn01 btn_cx">취소</a>
+							<a href="javascript:;" class="btn01 btn_confirm" id="confirmBtn" onclick="">확인</a>
+						</div>
+					</div>
+				</div>
+
+				<span class="ly_dim"></span>
+			</div>
+			<!--// 확인사항 레이어팝업 : 페이지 진입시 -->
+
+			<!-- 2023.09.18 : 시험 시작 카운트다운 레이어팝업 S -->
+			<div class="layerPop countLayer" id="ly_fixed" style="display: none;">
+				<div class="popInner">
+					<h5 id="startCount">10</h5>
+					<p>시험이 곧 시작됩니다.</p>
+				</div>
+				<span class="ly_dim"></span>
+			</div>
+			<!--// 2023.09.18 : 시험 시작 카운트다운 레이어팝업 E -->
+
+			<!-- 시험종료 레이어팝업 -->
+			<div class="layerPop" id="ly_quit">
+
+				<!-- 시험 종료 1단계 -->
+				<div class="popInner">
+					<div class="exam_quit">
+						<img src="./Sample_files/lyr_quit01.png" alt="시험을 종료하시겠습니까?">
+
+						<div class="txt_wrap">
+							<label><input type="checkbox" id="smsYn" checked> SMS 알림</label>
+							<span>Sample</span>
+							<a href="javascript:;">변경</a>
+						</div>
+
+						<div class="btn_wrap">
+							<a href="javascript:;" class="btn01 btn_cx"
+								onclick="$(this).parent().parent().parent().parent().fadeOut(100);">취소</a>
+							<a href="javascript:;" class="btn01 btn_confirm" id="saveDone">확인</a>
+						</div>
+					</div>
+
+					<a href="javascript:;" class="bt_popClose" onclick="$(this).parent().parent().fadeOut(100);">
+						<img src="./Sample_files/btn_close.png" alt="닫기">
+					</a>
+
+				</div>
+
+				<span class="ly_dim"></span>
+			</div>
+			<!--// 시험종료 레이어팝업 -->
+
+			<!-- 시험종료 레이어팝업 -->
+			<div class="layerPop" id="ly_end">
+
+				<!-- 시험 종료 2단계 -->
+				<div class="popInner2">
+					<div class="exam_quit">
+						<img src="./Sample_files/lyr_quit02.png" alt="시험이 종료되었습니다.">
+
+						<div class="btn_wrap">
+							<a href="javascript:;" class="btn01 btn_confirm"
+								onclick="alert('시험이 종료되었습니다.\n종료된 시험의 답안 수정은 불가하며,\n현재까지 작성하신 내용으로 첨삭이 진행됩니다.');">확인</a>
+						</div>
+					</div>
+				</div>
+
+				<span class="ly_dim"></span>
+			</div>
+			<!--// 시험종료 레이어팝업 -->
+		</div>
+		</main>
+</body>
+
+</html>
+<script src="./editor/build/ckeditor.js" charset="utf-8"></script>
+<script src="./editor/build/translations/ko.js"></script>
+
+<script>
+	$.ajaxSetup({
+		cache: false
+	});
+
+	//전체 세팅될 행 갯수
+	var _limitLineCnt = 165;
+	var _lineCnt = 165;
+	var _pageCnt = 1;
+	var _editor;
+
+	var _targetDay = '2023/08/31 0:0:0';
+
+	window.onbeforeunload = function () {
+		return '이 사이트에서 나가시겠습니까?\n변경사항이 저장되지 않을 수 있습니다.';
+	}
+
+	$(document).ready(function () {
+		fnCountDown(_targetDay);
+
+		// 우측 툴바 고정 플로팅배너
+		var containerTop = $('.editor-container').offset().top - 155;
+		$(window).scroll(function () {
+			if ($(window).scrollTop() >= containerTop) {
+				$('.floBnr').addClass('fixed');
+			}
+			else {
+				$('.floBnr').removeClass('fixed');
+			}
+		});
+
+		// 좌측 행 카운트
+		for (var i = 1; i <= _lineCnt; i++) {
+			$('.aside_line_count').append(`<span>${i}</span>`);
+		}
+
+		// 2023.09.18 : 좌측 행 아이디 부여
+		$('.aside_line_count span').each(function (index) {
+			$(this).attr('id', 'anchor' + (index + 1));
+		});
+
+		$("#line-count").text(function (index, oldText) {
+			return oldText + " / " + _limitLineCnt + "줄";
+		});
+
+		$("#page-count").text(function (index, oldText) {
+			return oldText + " / " + _pageCnt + "쪽";
+		});
+
+		var text = $("#line-count").text();
+		var words = text.split(" ");
+		var thirdWord = words[3];
+
+		$("#line-count, #page-count").html(function () {
+			return $(this).text().replace(thirdWord, "<span style='color: #0082ff;'>" + thirdWord + "</span>");
+		});
+
+	})
+
+	function popupCenter(href, w, h) {
+		var xPos = (document.body.offsetWidth / 2) - (w / 2); // 가운데 정렬
+		xPos += window.screenLeft; // 듀얼 모니터일 때
+		var yPos = (document.body.offsetHeight / 2) - (h / 2);
+
+		window.open(href, "pop_name", "width=" + w + ", '_blank' height=" + h + ", left=" + xPos + ", top=" + yPos + ", menubar=yes, status=yes, titlebar=yes, resizable=yes");
+	}
+
+	ClassicEditor
+		.create(document.querySelector('.editor'), {
+			licenseKey: '',
+			alignment: {
+				options: ['left', 'right', 'center', 'justify']
+			}
+		})
+		.then(editor => {
+			_editor = editor
+			//전체 세팅될 높이 값
+			var fullHeight = 0;
+
+			//1개 라인당 높이 값
+			var perLineHeight = $(".ck .ck-content p:eq(0)").height() ? $(".ck .ck-content p:eq(0)").height() : 0;
+			perLineHeight = perLineHeight.toFixed(1);
+
+			//여백 값들 가져오기
+			var spaceObj;
+			var space = 0;
+
+			spaceObj = document.querySelector(".ck-editor__editable");
+			space += parseFloat(window.getComputedStyle(spaceObj).getPropertyValue("padding").replace(/px/gi, ""));
+			space += parseFloat(window.getComputedStyle(spaceObj).getPropertyValue("border-width").replace(/px/gi, ""));
+			space = space * 2;
+
+			fullHeight = perLineHeight * _lineCnt + space;
+			fullHeight = Math.round(fullHeight);
+
+			//에디터 자체가 변경 될시
+			editor.editing.view.change(writer => {
+				writer.setStyle("height", fullHeight + "px", editor.editing.view.document.getRoot());
+			});
+
+			//editor.setData(`<%=DataTxt%>`);
+
+			editor.focus();
+			const obj = document.querySelector('.ck-editor__editable');
+			getCursorPosition();
+
+			//줄 수 세팅
+			var thisLineCnt = updateLineCount(editor);
+			thisLineCnt = (thisLineCnt == 0) ? 1 : thisLineCnt;
+			//쪽 수 세팅
+			var thisPageCnt = Math.ceil(thisLineCnt / 34);
+			thisPageCnt = (thisPageCnt == 0) ? 1 : thisPageCnt;
+
+			$("#line-count").html("줄 수 : " + thisLineCnt);
+			$("#page-count").html("쪽 수 : " + thisPageCnt);
+
+			// editor.model.document.on('change', (evt, data) => {
+			//     const changes = data.deltas;
+			//     for (const change of changes) {
+			//         if (change.type === 'insert') {
+			//             const insertedText = change.contentAfter.text.slice(change.range.index, change.range.index + change.insert.length);
+			//             if (insertedText) {
+			//                 editor.model.change(writer => {
+			//                     const span = writer.createElement('span');
+			//                     writer.insertText(insertedText, span);
+			//                     writer.insert(span, change.range.index);
+			//                     writer.remove(change.range);
+			//                 });
+			//             }
+			//         }
+			//     }
+			//     editor.editing.view.focus();
+			// });
+
+			//에디터 keydown 이벤트
+			editor.editing.view.document.on('keydown', (evt, data) => {
+				if (data.keyCode == 25) {
+					data.preventDefault();
+					evt.stop();
+				}
+			});
+
+			var tmpLineCnt = 0;
+
+			//에디터 데이터 변경시 이벤트
+			editor.model.document.on('change:data', (evt, data) => {
+				setTimeout(function () {
+					thisLineCnt = updateLineCount(editor);
+
+					if (thisLineCnt != tmpLineCnt) {
+						thisPageCnt = Math.ceil(thisLineCnt / 33);
+
+						// $("#line-count").html('줄 수 : <span style="color: #0082ff;">' + thisLineCnt + '</span> / ' + _limitLineCnt + '줄');
+						// $("#page-count").html('쪽 수 : <span style="color: #0082ff;">' + thisPageCnt + '</span> / ' + _pageCnt + '쪽');
+						// 2023.09.18 : 쪽수 활성화
+						const iPageCnt = $('#pageWrap .page').length;
+
+						for (let i = 0; i < iPageCnt; i++) {
+							if (i < thisPageCnt) {
+								$(`.page${(i + 1)}`).addClass('active');
+							}
+							else {
+								$(`.page${(i + 1)}`).removeClass('active');
+							}
+						}
+						// 2023.09.18 : 쪽수 활성화 
+
+						if (thisLineCnt > _limitLineCnt) {
+							$('.count-wrap, #count-warn').addClass('active'); // 2023.09.18 : 제한된 답안 분량을 초과 레이어팝업 
+							setTimeout(() => $('.count-wrap').removeClass('active'), 5000); // 2023.09.18 : 제한된 답안 분량을 초과 레이어팝업 
+
+							editor.editing.view.change(writer => {
+								fullHeight = perLineHeight * thisLineCnt + space;
+								fullHeight = Math.round(fullHeight);
+								writer.setStyle("height", fullHeight + "px", editor.editing.view.document.getRoot());
+							});
+
+							if (thisLineCnt < tmpLineCnt) {
+								$(`.aside_line_count span:contains(${tmpLineCnt})`).remove();
+							}
+							else {
+								$('.aside_line_count').append(`<span>${thisLineCnt}</span>`);
+							}
+						} else {
+							$('.count-wrap').removeClass('active') // 2023.09.18 : 제한된 답안 분량을 초과 레이어팝업  
+						}
+					}
+
+
+					tmpLineCnt = thisLineCnt;
+				}, 0);
+			});
+
+			/*
+			editor.editing.view.document.on('clipboardInput', (evt, data) => {
+				var dataTransfer = data.dataTransfer;
+			});
+			*/
+
+			var undo = document.querySelector("#undo");
+			undo.addEventListener('click', () => {
+				editor.execute('undo');
+				editor.focus();
+			});
+
+			var redo = document.querySelector("#redo");
+			redo.addEventListener('click', () => {
+				editor.execute('redo');
+				editor.focus();
+			});
+
+			var alignL = document.querySelector('#alignL');
+			alignL.addEventListener('click', () => {
+				editor.execute('alignment', { value: 'left' })
+				editor.focus();
+			});
+
+			var alignR = document.querySelector('#alignR');
+			alignR.addEventListener('click', () => {
+				editor.execute('alignment', { value: 'right' })
+				editor.focus();
+			});
+
+			var alignC = document.querySelector('#alignC');
+			alignC.addEventListener('click', () => {
+				editor.execute('alignment', { value: 'center' })
+				editor.focus();
+			});
+
+			var alignJ = document.querySelector('#alignJ');
+			alignJ.addEventListener('click', () => {
+				editor.execute('alignment', { value: 'justify' })
+				editor.focus();
+			});
+
+			var special = document.querySelector('#specialCharsLayer');
+			var specialEach = document.querySelectorAll('.letter');
+			special.addEventListener('click', e => {
+				var targetEl = e.target
+
+				if (!targetEl.classList.contains('letter')) {
+					return
+				}
+				else {
+					editor.model.change(writer => {
+						var insertPosition = editor.model.document.selection.getFirstPosition();
+
+						if (editor.getData() == "") {
+							// 클릭한 특수 문자 가져오기
+							var specialChar = targetEl.textContent;
+							writer.insertText(specialChar, insertPosition);
+							writer.setSelection(writer.createPositionAt(editor.model.document.getRoot(), 'end'));
+						}
+						else {
+							// 클릭한 특수 문자 가져오기
+							var specialChar = targetEl.textContent;
+							writer.insertText(specialChar, insertPosition);
+						}
+					});
+					editor.focus();
+				}
+			});
+
+			function updateLineCount() {
+				var lineHeight = 0;
+				var lineCnt = 0;
+
+
+				$(".ck .ck-content p").each(function () {
+					lineHeight += parseFloat($(this).height().toFixed(1));
+				})
+
+				lineCnt = lineHeight / perLineHeight;
+				return Math.round(lineCnt);
+			}
+
+			function isSpecialCharacterKey(keyCode) {
+				return keyCode >= 48 && keyCode <= 57 || // 숫자 키
+					keyCode >= 186 && keyCode <= 192 || // ;=,-./` 키
+					keyCode >= 219 && keyCode <= 222; // [\]'" 키
+			}
+
+			function isChineseCharacterKey(keyCode) {
+				return keyCode === 229; // 한자키 키 코드
+			}
+
+			function getCursorPosition() {
+				const selection = window.getSelection();
+				const range = selection.getRangeAt(0);
+				const preRange = range.cloneRange();
+				preRange.selectNodeContents(obj);
+				preRange.setEnd(range.startContainer, range.startOffset);
+
+				const rect = preRange.getBoundingClientRect();
+				const cursorHeight = rect.height.toFixed(1);
+
+				console.log(cursorHeight);
+
+				let nowLine = cursorHeight / perLineHeight;
+
+				nowLine = Math.round(nowLine) + 1;
+
+				// $('#word-count').html(nowLine + '번째 줄입니다.');
+			}
+
+			obj.addEventListener('keyup', getCursorPosition);
+			obj.addEventListener('click', getCursorPosition);
+		})
+		.catch(error => {
+			console.error('Oops, something went wrong!');
+			console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+			console.warn('Build id: npntvpvbyzns-4egbblrlmcuo');
+			console.error(error);
+		});
+
+	var confirmBtn = document.querySelector('#confirmBtn');
+	confirmBtn.addEventListener('click', () => {
+		if (!$("#confirm:checked").length) {
+			alert('확인사항에 동의하셔야 시험 응시가 가능합니다.');
+			return;
+		}
+
+		$('#ly_info').fadeOut(100);
+		fnCountDown(_targetDay);
+
+		// 2023.09.18 : 시험 시작 카운트다운 
+		let startCountNum = 10;
+		function decreaseNum() {
+			$('.layerPop.countLayer').fadeIn(0);
+			$('#startCount').text(startCountNum);
+			startCountNum--;
+
+			if (startCountNum >= 0) {
+				setTimeout(decreaseNum, 1000);
+			} else {
+				$('.countLayer').fadeOut(0);
+			}
+		}
+
+		decreaseNum();
+		// 2023.09.18 : 시험 시작 카운트다운
+	});
+
+	var tmpSave = document.querySelector('#tmpSave');
+	tmpSave.addEventListener('click', () => {
+		fnSave(1, 0);
+		alert('임시저장 되었습니다.');
+	});
+
+	var saveDone = document.querySelector("#saveDone");
+	saveDone.addEventListener('click', () => {
+		fnSave(2, 1);
+	});
+
+	function fnSave(flg, mode) {
+		return false;
+
+		var val = _editor.getData();
+		val = val.replace(/<p\b[^>]*>(?:\s*&nbsp;\s*)?<\/p>/gi, '<p><br></p>');
+		val = val.replace(/&nbsp;/gi, ' ');
+		val = val.replace(/\\r\\n|\\n|\\r/gi, '<br>');
+		val = escape(val);
+
+		var tm = document.querySelector("#timeWrap").textContent.replace(':', '.');
+		tm = (flg == 1) ? ((tm == "000.00") ? "0" : tm) : "0";
+
+		var smsYn = $('#smsYn:checked').length ? 'Y' : 'N';
+
+		var line = $("#line-count span").text();
+
+		//SAVE API 연결 구간
+
+		//SAVE API 연결 구간
+
+		//SAVE API 성공시 처리 구간
+		alert('시험이 종료되었습니다.\n종료된 시험의 답안 수정은 불가하며,\n현재까지 작성하신 내용으로 첨삭이 진행됩니다.');
+		window.onbeforeunload = "";
+		return;
+		//SAVE API 성공시 처리 구간
+	}
+
+	function fnCountDown(dt) {
+		var end = new Date(dt);
+		var now = new Date();
+
+		var _second = 1000;
+		var _minute = _second * 60;
+		var run_time = 0;
+		var timer;
+
+		// function showRemaining() {
+		// 	var distance = end - now - run_time;
+		// 	run_time = run_time + _second;
+
+		// 	if (!navigator.onLine) {
+		// 		alert('네트워크 상태를 확인해 주세요.');
+		// 		window.onbeforeunload = "";
+		// 		//self.close();
+		// 		return;
+		// 	}
+
+		// 	if (distance < 0) {
+
+		// 		clearInterval(timer);
+
+		// 		document.querySelector("#timeWrap").textContent = "000:00";
+
+		// 		_editor.enableReadOnlyMode("editor");
+
+		// 		fnSave(3, 1);
+
+		// 		$('#ly_quit').hide(0, function () {
+		// 			$('#ly_end').show(0, function () {
+		// 				opener.location.reload();
+		// 				window.onbeforeunload = "";
+		// 			});
+		// 		});
+		// 		return;
+		// 	}
+
+		// 	var minutes = addZero(Math.floor(distance / _minute), 3);
+		// 	var seconds = addZero(Math.floor((distance % _minute) / _second), 2);
+		// 	var val = _editor.getData();
+
+		// 	if (val != "") {
+		// 		if (run_time % 300000 == 0) {
+		// 			fnSave(1, 1);
+		// 		}
+		// 		else if (run_time % 60000 == 0) {
+		// 			fnSave(1, 0);
+		// 		}
+		// 	}
+
+		// 	document.querySelector("#timeWrap").textContent = minutes + ":" + seconds;
+		// }
+
+		// timer = setInterval(showRemaining, 1000);
+	}
+
+	function addZero(data, len) {
+		data = '000000000000000' + data;
+		return data.substr(data.length - len, len);
+	}
+</script>

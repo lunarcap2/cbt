@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-eqiv="Content-Type" content="text/html" charset="euc-kr">
+	<meta name="viewport" content="width=1300, maximum-scale=1.5">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>메가로이어스 :: Lawyers for Lawyers</title>
+	<script type="text/javascript" src="https://img.megalawyers.co.kr/common/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="http://img.megals.co.kr/common/js/jquery.bxslider.js"></script> <!-- 추가함 -->
+	<!-- <link rel="stylesheet" type="text/css" href="leet.css" /> -->
+	<style type="text/css">
+
+        /* 기본세팅 */
+        * { box-sizing: border-box;}
+        html,body { height:100%; border:0; color:#888; width: 820px;}
+        body,p,form,ol,ul,li,dl,dd,input,select,textarea,blockquote { margin:0; padding:0; }
+        h1,h2,h3,h4,h5,h6 { margin:0; padding:0; }
+        caption { position:absolute; top:-5000px; left:0; font:0/0 Dotum; }
+        table { border:0; border-spacing:0; border-collapse:separate; border-collapse:collapse; }
+        table th { text-align:center; }
+        th,td { word-break:break-all; }
+        em,i { font-style:normal; }
+        ul { list-style:none; }
+        img { border:0; vertical-align:middle; }
+        del { color:#bbb; }
+        samp { font-family:'Nanum Gothic','Malgun Gothic'; }
+        strong { font-weight:bold; }
+        a { color:#888; text-decoration:none; }
+        a:focus,a:active { outline:none; }
+        a:hover { color:#e12c22; }
+        .p0   { padding:0 !important; }
+        .pt0  { padding-top : 0   !important; } .pb0  { padding-bottom: 0px !important; }
+        .w790 {width: 790px; margin: 0 auto;}
+        .fleft  { float:left; }
+        .fright { float:right; }
+        .fclear { clear:both; height:0; }
+        .fgroup:after { content:" "; display:block; clear:both; }
+        .m0   { margin:0 !important; }
+        .mt0  { margin-top : 0   !important; } .mb0  { margin-bottom: 0px !important; }
+        .mt5  { margin-top : 5px !important; } .mb5  { margin-bottom: 5px !important; }
+        .mt10 { margin-top :10px !important; } .mb10 { margin-bottom:10px !important; }
+        .mt15 { margin-top :15px !important; } .mb15 { margin-bottom:15px !important; }
+        .mt20 { margin-top :20px !important; } .mb20 { margin-bottom:20px !important; }
+        .mt25 { margin-top :25px !important; } .mb25 { margin-bottom:25px !important; }
+        .mt30 { margin-top :30px !important; } .mb30 { margin-bottom:30px !important; }
+        .bt0  { border-top:0  !important; } .bb0  { border-bottom:0 !important; }
+        .bl0  { border-left:0 !important; } .br0  { border-right:0  !important; }
+        .tit20 { position:relative; margin-top:50px; padding:20px 0 15px; color:#000; font:bold 20px/1em 'Nanum Gothic'; letter-spacing:-1px; }
+        .tit20 em { position:absolute; right:0; bottom:15px; }
+        .tit20 span { color:#d50c0c; }
+        .tleft { text-align:left !important; }
+        .tright { text-align:right !important; }
+        .tcenter { text-align:center !important; }
+        .tjustify { text-align:justify !important; }
+        .bcenter { margin-left:auto; margin-right:auto; }
+
+        /* 팝업 레이아웃 */
+        #wrap_forPopup1 { height:100%; background:#fff; }
+        #wrap_forPopup1 #body { padding:0 20px 20px; }
+        #wrap_forPopup1 #body .tit30 + .tit16 { margin-top:0; }
+        #wrap_forPopup1 .leet_tb{border-top:1px solid #333;}
+        
+
+        /*//////////////// 프린트 //////////// */
+		@media print {
+			* {
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+
+			}
+			html, body {
+				width: 210mm;
+				height: 297mm;
+                padding: 0;
+			}
+
+            
+			/* .page { margin: 0; border: initial; width: initial; min-height: initial; box-shadow: initial; background: initial; page-break-after: always;} */
+
+			#wrap_pop1 .tbl_type10 th{background:#f5f5f5; border-bottom:1px solid #ddd !important;}
+			.subpage { background:#fff; height: 257mm; }
+			.btn34a { display: none;}
+            .page-break { page-break-inside:avoid; page-break-after:auto }
+            
+            @page:first { 
+                margin: 0px 0 0px;
+                page-break-before:always;
+                size: auto;
+            }
+
+            @page { 
+                margin: 0px 0 0px;
+                page-break-before:always;
+                size: auto;
+            }
+       
+        .print_btn_wrap { display: none;}
+        
+
+		}
+         /*///////////////// 프린트 ////////////////*/ 
+
+         .tit_hidden { visibility: hidden; margin-top: 30px;}
+
+        .page_container2  { margin-top: 0px;  page-break-after:auto ; padding-top: 1px ;}      
+
+        .aside_line_count { width:23px; height: 100%; text-align: center; margin-top: 54px;  margin-right: 15px; display: flex; flex-direction: column; text-align: center; float: left; }
+        .aside_line_count span { display: inline-block; font-size: 17px; height:27.38px; color:#333; text-align: center; }
+
+        .page_container2 .aside_line_count { margin-top: 0;  }
+
+
+		.button_default { display: inline-block; text-align: center; min-width:120px; padding: 5px 10px; background: #ddd; text-decoration: none; color:#333; font-weight: 500; letter-spacing: -0.5px;}
+        .button_default.quit { background: #0082ff; color:#fff;}
+        .print_btn_wrap { text-align: right; margin:10px 0 30px;}
+
+        body.pop_body {  box-sizing: border-box;}
+        #wrap_forPopup1 { height: 100%;}
+        #wrap_forPopup1 #body { padding: 0 30px 20px; position: relative;}
+        .tit20 { padding: 20px 0 30px 40px;}
+        .exam_tit { color:#333; font-size: 25px; padding-bottom: 20px;}
+        .ck-editor__editable {
+            font-family: 'Nanum Gothic' !important;
+            font-size: 16.5px !important;
+            letter-spacing: 3px;
+            line-height: 1.66 !important;
+            background-attachment: scroll !important;
+            background-color: #fff;
+            /* background-image:
+                linear-gradient(to right, white 10px, transparent 10px),
+                linear-gradient(to left, white 10px, transparent 10px),
+                repeating-linear-gradient(white, white 27.8px, #ccc 27.8px, #ccc 28.8px, white 28.8px) !important; */
+            padding: 0em 1em !important;
+            background-image: linear-gradient(#eee .1em, transparent .1em) !important; background-size: 100% 1.66em !important ; background-position: 0 -2px !important;
+            overflow-y: hidden !important;
+        }
+
+        .page_container { position: relative;  }
+          
+	</style>
+</head>
+<body class="pop_body page">
+
+<div id="wrap_forPopup1">
+
+	<!-- <h1 class="tit17">성적표 출력</h1> -->
+
+	<!-- BODY -->
+	<div id="body" class="subpage">
+		<div class="tit_wrap mt30">
+			<h2 class="tit20 mt0 pt0 f18">
+				양유*(iris4095)_2023-07-15_CBT 답안파일
+			</h2>
+            <div class="print_btn_wrap">
+				<a href="javascript:;" class="button_default quit" onclick="return window.print();">인쇄하기</a>
+				<a href="javascript:self.close();" class="button_default save">닫기</a>
+			</div>
+		</div>
+
+         
+        <div class="page_container">
+            <!-- 좌측 줄 수 보여주기 -->
+            <div class="aside_line_count" id="aside_line_count">
+            </div>
+            <!--// 좌측 줄 수 보여주기 -->
+
+            <h3 class="exam_tit mt20 tcenter">메가로이어스 변호사시험 답안지 사례형</h3>
+
+            <div class="page ck-editor__editable" style="height: 931px; background:#fff; border:1px solid #ddd" class="ck-editor__editable page-break">
+                <p>
+                    안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                    저는p태그에요35자가넘어가면떨어져요35자가넘어가면떨어져저는p태그에요
+                </p>
+                안녕하세요저는div에요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                1페이지끝 1페이지끝 1페이지끝 1페이지끝
+            </div>
+
+        </div>
+            
+        <div class="page_container page_container2">
+            <div class="tit_wrap tit_hidden">
+                <h2 class="tit20 mt0 pt0 f18">
+                    양유*(iris4095)_2023-07-15_CBT 답안파일
+                </h2>
+
+            </div>
+
+            <!-- 좌측 줄 수 보여주기 -->
+            <div class="aside_line_count" id="aside_line_count2">
+            </div>
+            <!--// 좌측 줄 수 보여주기 -->
+
+            <div class="page page2 ck-editor__editable" style="height: 932px; background:#fff; border:1px solid #ddd; margin-bottom: 100px; " class="ck-editor__editable page-break">
+                <p>
+                    안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                    저는p태그에요35자가넘어가면떨어져요35자가넘어가면떨어져저는p태그에요
+                </p>
+                안녕하세요저는div에요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                2페이지끝 2페이지끝 2페이지끝 2페이지끝
+            </div>
+        </div>
+
+        <div class="page_container page_container2">
+
+            <div class="tit_wrap tit_hidden">
+                <h2 class="tit20 mt0 pt0 f18">
+                    양유*(iris4095)_2023-07-15_CBT 답안파일
+                </h2>
+
+            </div>
+
+            <!-- 좌측 줄 수 보여주기 -->
+            <div class="aside_line_count" id="aside_line_count3">
+            </div>
+            <!--// 좌측 줄 수 보여주기 -->
+
+            <div class="page page2 ck-editor__editable" style="height: 931px; background:#fff; border:1px solid #ddd;  margin-bottom: 100px;" class="ck-editor__editable page-break">
+                <p>
+                    안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                    저는p태그에요35자가넘어가면떨어져요35자가넘어가면떨어져저는p태그에요
+                </p>
+                안녕하세요저는div에요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                3페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                3페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                3페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                3페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                3페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                3페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+            </div>
+        </div>
+       
+        <div class="page_container page_container2">
+            <div class="tit_wrap tit_hidden">
+                <h2 class="tit20 mt0 pt0 f18">
+                    양유*(iris4095)_2023-07-15_CBT 답안파일
+                </h2>
+
+            </div>
+
+            <!-- 좌측 줄 수 보여주기 -->
+            <div class="aside_line_count" id="aside_line_count4">
+            </div>
+            <!--// 좌측 줄 수 보여주기 -->
+
+            <div class="page page2 ck-editor__editable" style="height: 931px; background:#fff; border:1px solid #ddd;  margin-bottom: 100px;" class="ck-editor__editable page-break">
+                <p>
+                    안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                    저는p태그에요35자가넘어가면떨어져요35자가넘어가면떨어져저는p태그에요
+                </p>
+                안녕하세요저는div에요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                4페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                4페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                4페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                4페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                4페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                4페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+            </div>
+        </div>
+
+        <div class="page_container page_container2">
+            <div class="tit_wrap tit_hidden">
+                <h2 class="tit20 mt0 pt0 f18">
+                    양유*(iris4095)_2023-07-15_CBT 답안파일
+                </h2>
+
+            </div>
+
+            <!-- 좌측 줄 수 보여주기 -->
+            <div class="aside_line_count" id="aside_line_count5">
+            </div>
+            <!--// 좌측 줄 수 보여주기 -->
+
+            <div class="page page2 ck-editor__editable" style="height: 931px; background:#fff; border:1px solid #ddd;  margin-bottom: 100px;" class="ck-editor__editable page-break">
+                <p>
+                    안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                    저는p태그에요35자가넘어가면떨어져요35자가넘어가면떨어져저는p태그에요
+                </p>
+                안녕하세요저는div에요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                5페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                5페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                5페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                5페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                5페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                5페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+            </div>
+        </div>
+
+        <div class="page_container page_container2">
+            <div class="tit_wrap tit_hidden">
+                <h2 class="tit20 mt0 pt0 f18">
+                    양유*(iris4095)_2023-07-15_CBT 답안파일
+                </h2>
+
+            </div>
+
+            <!-- 좌측 줄 수 보여주기 -->
+            <div class="aside_line_count" id="aside_line_count6">
+            </div>
+            <!--// 좌측 줄 수 보여주기 -->
+
+            <div class="page page2 ck-editor__editable" style="height: 931px; background:#fff; border:1px solid #ddd;  margin-bottom: 100px;" class="ck-editor__editable page-break">
+                <p>
+                    안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                    저는p태그에요35자가넘어가면떨어져요35자가넘어가면떨어져저는p태그에요
+                </p>
+                안녕하세요저는div에요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                6페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                6페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                6페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                6페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                6페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                6페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+            </div>
+        </div>
+
+        <div class="page_container page_container2">
+            <div class="tit_wrap tit_hidden">
+                <h2 class="tit20 mt0 pt0 f18">
+                    양유*(iris4095)_2023-07-15_CBT 답안파일
+                </h2>
+
+            </div>
+
+            <!-- 좌측 줄 수 보여주기 -->
+            <div class="aside_line_count" id="aside_line_count7">
+            </div>
+            <!--// 좌측 줄 수 보여주기 -->
+
+            <div class="page page2 ck-editor__editable" style="height: 931px; background:#fff; border:1px solid #ddd;  margin-bottom: 100px;" class="ck-editor__editable page-break">
+                <p>
+                    안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                    저는p태그에요35자가넘어가면떨어져요35자가넘어가면떨어져저는p태그에요
+                </p>
+                안녕하세요저는div에요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                7페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                7페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                7페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                7페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                7페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+                7페이지끝 안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+            </div>
+        </div>
+
+		<!--// 1. 내 점수 한눈에 보기 -->
+
+        <script>
+            $(document).ready(function(){
+                // 좌측 행 카운트
+				for (let i = 1; i < 35; i++) {
+					$('#aside_line_count').append('<span>' + i + '</span>');
+				}
+
+				for (let i = 35; i < 69; i++) {
+					$('#aside_line_count2').append('<span>' + i + '</span>');
+				}
+
+                for (let i = 69; i < 103; i++) {
+					$('#aside_line_count3').append('<span>' + i + '</span>');
+				}
+
+                for (let i = 103; i < 137; i++) {
+					$('#aside_line_count4').append('<span>' + i + '</span>');
+				}
+
+                for (let i = 137; i < 171; i++) {
+					$('#aside_line_count5').append('<span>' + i + '</span>');
+				}
+
+                for (let i = 171; i < 205; i++) {
+					$('#aside_line_count6').append('<span>' + i + '</span>');
+				}
+
+                for (let i = 205; i < 239; i++) {
+					$('#aside_line_count7').append('<span>' + i + '</span>');
+				}
+
+                for (let i = 239; i < 273; i++) {
+					$('#aside_line_count8').append('<span>' + i + '</span>');
+				}
+            })
+            
+        </script>
+
+
+	</div>
+	<!--// BODY -->
+
+</div>
+<!--// id=wrap_forPopup1 -->
+
+</body>
+</html>
